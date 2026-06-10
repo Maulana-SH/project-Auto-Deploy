@@ -1,0 +1,6 @@
+{
+  "AppSettings": {
+    "ConnectionString": "your_connection_string",
+    "ApiKey": "your_api_key"
+  }
+}

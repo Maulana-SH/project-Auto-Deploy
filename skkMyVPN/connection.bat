@@ -1,0 +1,1 @@
+rasdial "VPN" Userapp01 skk@123 /phonebook:"d:\kantor\develovepment program\deksptop apps\testing\skkMyVPN\connection.pbk"
