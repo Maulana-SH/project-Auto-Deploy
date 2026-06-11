@@ -85,9 +85,6 @@ Public Class xrFRMLogin
         End If
     End Sub
 
-    Private Sub cm03LoadIPAddressfunct()
-        ' todo code 
-    End Sub
 #End Region
 
     Private Sub xrFRMLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load

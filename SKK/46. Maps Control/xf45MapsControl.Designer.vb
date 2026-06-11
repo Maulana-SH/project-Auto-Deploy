@@ -24,7 +24,6 @@ Partial Class xf45MapsControl
         Dim DynamicMiniMapBehavior1 As DevExpress.XtraMap.DynamicMiniMapBehavior = New DevExpress.XtraMap.DynamicMiniMapBehavior()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(xf45MapsControl))
         Me.MiniMapImageTilesLayer1 = New DevExpress.XtraMap.MiniMapImageTilesLayer()
-        Me.BingMapDataProvider2 = New DevExpress.XtraMap.BingMapDataProvider()
         Me.MiniMapVectorItemsLayer1 = New DevExpress.XtraMap.MiniMapVectorItemsLayer()
         Me.MapItemStorage1 = New DevExpress.XtraMap.MapItemStorage()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
@@ -39,8 +38,6 @@ Partial Class xf45MapsControl
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MySvgCol, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        Me.MiniMapImageTilesLayer1.DataProvider = Me.BingMapDataProvider2
-        Me.BingMapDataProvider2.BingKey = "YOUR BING MAPS KEY"
         Me.MiniMapVectorItemsLayer1.Data = Me.MapItemStorage1
         '
         'LayoutControl1
@@ -112,7 +109,6 @@ Partial Class xf45MapsControl
     Friend WithEvents Root As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents MapControl1 As DevExpress.XtraMap.MapControl
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents BingMapDataProvider2 As DevExpress.XtraMap.BingMapDataProvider
     Friend WithEvents MapItemStorage1 As DevExpress.XtraMap.MapItemStorage
     Friend WithEvents MiniMapImageTilesLayer1 As DevExpress.XtraMap.MiniMapImageTilesLayer
     Friend WithEvents MiniMapVectorItemsLayer1 As DevExpress.XtraMap.MiniMapVectorItemsLayer
