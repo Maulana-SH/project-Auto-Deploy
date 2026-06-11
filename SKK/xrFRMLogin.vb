@@ -1,4 +1,5 @@
-﻿Imports NCMODELlib
+﻿Imports System.Windows.Controls
+Imports NCMODELlib
 
 Public Class xrFRMLogin
 
@@ -57,7 +58,7 @@ Public Class xrFRMLogin
             Using ObjLOGIN As clsNEWCENTRAL_iface = New clsNEWCENTRAL_impl With {
                 .prop_02cUserID = userID,
                 .prop_03cKeyPass = pass}
-                dataLogin = ObjLOGIN.Get90User()
+                dataLogin = ObjLOGIN.Get90USER()
             End Using
 
             If dataLogin.Rows.Count > 0 Then
@@ -87,6 +88,8 @@ Public Class xrFRMLogin
 
     Private Sub cm04CekSesionLogin()
         ' Tode CODe cek
+
+        Dim user_login As Object
     End Sub
 
     Private Sub cm03LoadIPAddressfunct()
