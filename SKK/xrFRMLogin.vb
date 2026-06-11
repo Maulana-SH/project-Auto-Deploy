@@ -85,10 +85,16 @@ Public Class xrFRMLogin
         End If
     End Sub
 
+<<<<<<< HEAD
     Private Sub cm04CekSesionLogin()
         ' Tode CODe cek
     End Sub
 
+=======
+    Private Sub cm03LoadIPAddressfunct()
+        ' todo code 
+    End Sub
+>>>>>>> 999ed40 (feat: tes alur git work flow)
 #End Region
 
     Private Sub xrFRMLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
