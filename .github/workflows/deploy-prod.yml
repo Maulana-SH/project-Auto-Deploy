@@ -1,0 +1,28 @@
+name: Deploy to Production
+
+on:
+     push:
+          branches:
+               - main
+
+jobs:
+     deploy:
+          runs-on: self-hosted
+
+          steps:
+               - name: Checkout kode
+                 uses: actions/checkout@v4
+
+               - name: Setup MSBuild
+                 uses: microsoft/setup-msbuild@v2
+
+               - name: Build Release
+                 run: |
+                      msbuild "SKK.sln" /p:Configuration=Release /p:Platform="Any CPU"
+
+               - name: Copy ke Production
+                 run: |
+                      xcopy /E /Y /I "SKK\bin\Release\*" "D:\Citrix\Production\SKKRNDAPPS\"
+
+               - name: Selesai
+                 run: echo "Deploy ke Production berhasil"
