@@ -13,16 +13,22 @@ jobs:
                - name: Checkout kode
                  uses: actions/checkout@v4
 
-               - name: Setup MSBuild
-                 uses: microsoft/setup-msbuild@v2
+               - name: Restore NuGet
+                 shell: powershell
+                 run: |
+                      C:\nuget.exe restore "SKK\SKK.sln"
 
                - name: Build Release
+                 shell: powershell
                  run: |
-                      msbuild "SKK.sln" /p:Configuration=Release /p:Platform="Any CPU"
+                      & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU" /p:ReferencePath="${{ github.workspace }}\libs"
+                      if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
                - name: Copy ke Production
+                 shell: powershell
                  run: |
-                      xcopy /E /Y /I "SKK\bin\Release\*" "D:\Citrix\Production\SKKRNDAPPS\"
+                      xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Production\SKKRNDAPPS\"
 
                - name: Selesai
-                 run: echo "Deploy ke Production berhasil"
+                 shell: powershell
+                 run: Write-Host "Deploy ke Production berhasil"
