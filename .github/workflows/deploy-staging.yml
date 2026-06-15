@@ -1,25 +1,35 @@
 name: Deploy to Staging
 
 on:
-     push:
-          branches:
-               - staging
+  push:
+    branches:
+      - staging
+
+concurrency:
+  group: deploy-staging
+  cancel-in-progress: true
 
 jobs:
-     deploy:
-          runs-on: self-hosted
+  deploy:
+    runs-on: self-hosted
 
-          steps:
-               - name: Checkout kode
-                 uses: actions/checkout@v4
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v4
 
-               - name: Build Release
-                 run: |
-                      & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU"
+      - name: Build Release
+        shell: pwsh
+        run: |
+          $msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
+          & $msbuild "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-               - name: Copy ke Staging
-                 run: |
-                      xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Staging\SKKRNDAPPS\"
+      - name: Copy ke Staging
+        shell: pwsh
+        run: |
+          xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Staging\SKKRNDAPPS\"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-               - name: Selesai
-                 run: echo "Deploy ke Staging berhasil"
+      - name: Selesai
+        shell: pwsh
+        run: Write-Host "Deploy ke Staging berhasil"
