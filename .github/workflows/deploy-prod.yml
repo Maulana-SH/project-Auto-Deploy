@@ -1,35 +1,34 @@
 name: Deploy to Production
 
 on:
-  push:
-    branches:
-      - main
-
-concurrency:
-  group: deploy-production
-  cancel-in-progress: true
+     push:
+          branches:
+               - main
 
 jobs:
-  deploy:
-    runs-on: self-hosted
+     deploy:
+          runs-on: self-hosted
 
-    steps:
-      - name: Checkout kode
-        uses: actions/checkout@v4
+          steps:
+               - name: Checkout kode
+                 uses: actions/checkout@v4
 
-      - name: Build Release
-        shell: pwsh
-        run: |
-          $msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
-          & $msbuild "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+               - name: Restore NuGet
+                 shell: powershell
+                 run: |
+                      C:\nuget.exe restore "SKK\SKK.sln"
 
-      - name: Copy ke Production
-        shell: pwsh
-        run: |
-          xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Production\SKKRNDAPPS\"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+               - name: Build Release
+                 shell: powershell
+                 run: |
+                      & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU" /p:ReferencePath="${{ github.workspace }}\libs"
+                      if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-      - name: Selesai
-        shell: pwsh
-        run: Write-Host "Deploy ke Production berhasil"
+               - name: Copy ke Production
+                 shell: powershell
+                 run: |
+                      xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Production\SKKRNDAPPS\"
+
+               - name: Selesai
+                 shell: powershell
+                 run: Write-Host "Deploy ke Production berhasil"
