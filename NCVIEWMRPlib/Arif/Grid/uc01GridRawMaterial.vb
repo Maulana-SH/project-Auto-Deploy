@@ -142,6 +142,7 @@ Public Class uc01GridRawMaterial
     Private Sub _gcMCRawmaterial_Click(sender As Object, e As EventArgs) Handles _gcMCRawmaterial.Click
         _gcMCRawmaterial.ShowPrintPreview()
     End Sub
+
 #End Region
 
 End Class
