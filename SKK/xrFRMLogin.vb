@@ -87,6 +87,13 @@ Public Class xrFRMLogin
 
     Private Sub cm04CekSesionLogin()
         ' Tode CODe cek
+        Dim sesionUser As String = ""
+
+        If String.IsNullOrEmpty(sesionUser) Then
+
+            MsgBox("Sesion Is Empty... data")
+        End If
+
     End Sub
 
     Private Sub cm03LoadIPAddressfunct()
