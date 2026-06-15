@@ -15,11 +15,11 @@ jobs:
 
                - name: Build Release
                  run: |
-                      & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "SKK.sln" /p:Configuration=Release /p:Platform="Any CPU"
+                      & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU"
 
                - name: Copy ke Production
                  run: |
-                      xcopy /E /Y /I "SKK\bin\Release\*" "D:\Citrix\Production\SKKRNDAPPS\"
+                      xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Production\SKKRNDAPPS\"
 
                - name: Selesai
                  run: echo "Deploy ke Production berhasil"
