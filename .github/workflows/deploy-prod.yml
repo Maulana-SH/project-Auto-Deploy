@@ -1,14 +1,19 @@
 name: 🚀 Deploy to Production
 
 on:
-     push:
+     pull_request:
           branches:
                - main
+          types:
+               - closed
 
 jobs:
      build-and-deploy:
           name: Build & Deploy → Production
           runs-on: self-hosted
+
+          # Hanya jalan kalau PR di-MERGE (bukan sekedar ditutup)
+          if: github.event.pull_request.merged == true
 
           steps:
                - name: ✅ Checkout code
@@ -19,8 +24,7 @@ jobs:
 
                - name: 📦 Restore NuGet packages
                  shell: powershell
-                 run: |
-                      nuget restore "SKK.sln"
+                 run: nuget restore "SKK.sln"
                  working-directory: "SKK"
 
                - name: 🏗️ Build Release
@@ -54,11 +58,12 @@ jobs:
 
                       Write-Host "📂 Source      : $source"
                       Write-Host "📂 Destination : $destination"
+                      Write-Host "🔀 PR          : ${{ github.event.pull_request.title }}"
+                      Write-Host "👤 Merged by   : ${{ github.event.pull_request.merged_by.login }}"
                       Write-Host "⏳ Deploying..."
 
                       robocopy $source $destination /MIR /NP /NDL /LOG:deploy-production.log
 
-                      # robocopy exit code 0-7 = sukses, 8+ = error
                       if ($LASTEXITCODE -le 7) {
                         Write-Host "✅ Deploy Production BERHASIL!"
                         exit 0
