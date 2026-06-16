@@ -228,7 +228,7 @@ Public Class ucGridReprintPROPreparation
                 'pdCopy28BOMFCI = _01prop_t28BOMFCI
                 'pdDataRow28BOMFCI = pdCopy28BOMFCI.Select("k01cKodeFCI_v50 = '" & FGCode & "'")
 
-                '''dt29
+                ''dt29
                 'Dim pdDataMaster29 As New DataTable
                 'Using objSKKMaster29 As clsMRP_iface = New clsMRP_impl With {
                 '          .prop_KeyString01 = FGCode,

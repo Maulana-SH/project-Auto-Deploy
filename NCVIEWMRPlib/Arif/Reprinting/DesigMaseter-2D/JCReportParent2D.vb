@@ -49,7 +49,7 @@ Public Class JCReportParent2D
             .DataSource = _01prop_dt30
 
             'paper setting
-            .PaperKind = PaperKind.A4
+            .PaperKind = System.Drawing.Printing.PaperKind.A4
             'Margins(Left, Right, Top, Bottom)
             .Margins = New Margins(25, 25, 25, 25)
         End With
@@ -90,7 +90,7 @@ Public Class JCReportParent2D
             .DataSource = _01prop_dt30
 
             'paper setting
-            .PaperKind = PaperKind.A4
+            .PaperKind = System.Drawing.Printing.PaperKind.A4
             'Margins(Left, Right, Top, Bottom)
             .Margins = New Margins(25, 25, 25, 25)
         End With

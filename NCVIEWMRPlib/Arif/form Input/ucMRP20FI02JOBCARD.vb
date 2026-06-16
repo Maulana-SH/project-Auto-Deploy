@@ -446,7 +446,7 @@ Public Class ucMRP20FI02JOBCARD
     End Sub
 
     Private Function _pm010TransalteMRPtoNC(ByVal prmDataTable As DataTable, ByVal kodeTranslateMRP As String) As String
-        Dim SetName As String
+        Dim SetName As String = String.Empty
 
         'Tc01
         'Dim pdRow() As DataRow = _12PropDataMasterNCy51.Select("f05cKodeMRPTranslate_v50 = '" & kodeTranslateMRP & "'")
@@ -464,7 +464,7 @@ Public Class ucMRP20FI02JOBCARD
 
     '*** retrun String nama Stone
     Private Function _cm011GetNamaByCode(ByVal prmDataTable As DataTable, ByVal KodeType As String) As String
-        Dim SetName As String
+        Dim SetName As String = String.Empty
         Dim pdRow() As DataRow = prmDataTable.Select("k01cKodeFieldValueMaster_v50 = '" & KodeType & "'")
         If pdRow.Count > 0 Then
             SetName = pdRow(0).Item("f01cIsiFieldValueMaster_v50")
@@ -1307,8 +1307,8 @@ Public Class ucMRP20FI02JOBCARD
     Private Sub _gvBOM_CellValueChanged(sender As Object, e As CellValueChangedEventArgs) Handles _gvBOM.CellValueChanged
 
         Dim KodeItem As String
-        Dim KodeMaterial As String
-        Dim MaterialDesc As String
+        Dim KodeMaterial As String = String.Empty
+        Dim MaterialDesc As String = String.Empty
         Dim TotalGram As Double
 
         Select Case e.Column.FieldName

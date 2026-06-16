@@ -9,7 +9,6 @@ Imports DevExpress.XtraEditors.Repository
 
 Public Class repo51SKKValueMasterMultiple
     Inherits RepositoryItemCheckedComboBoxEdit
-    Implements IDisposable
 
     Public Property _01prop_dtMasterSKK As DataTable
     Public Property _02prop_FilterKodeMasterSKK As String
@@ -123,33 +122,13 @@ Public Class repo51SKKValueMasterMultiple
     End Sub
 
 #Region "IDisposable"
-    Private disposedValue As Boolean
 
-    Protected Overridable Sub Dispose(disposing As Boolean)
-        If Not disposedValue Then
-            If disposing Then
-                ' TODO: dispose managed state (managed objects)
-            End If
-
-            ' TODO: free unmanaged resources (unmanaged objects) and override finalizer
-            ' TODO: set large fields to null
-            disposedValue = True
+    Protected Overrides Sub Dispose(disposing As Boolean)
+        If disposing Then
+            ' dispose managed resources here if needed
         End If
+        MyBase.Dispose(disposing)
     End Sub
-
-    ' ' TODO: override finalizer only if 'Dispose(disposing As Boolean)' has code to free unmanaged resources
-    ' Protected Overrides Sub Finalize()
-    '     ' Do not change this code. Put cleanup code in 'Dispose(disposing As Boolean)' method
-    '     Dispose(disposing:=False)
-    '     MyBase.Finalize()
-    ' End Sub
-
-    Public Sub Dispose() Implements IDisposable.Dispose
-        ' Do not change this code. Put cleanup code in 'Dispose(disposing As Boolean)' method
-        Dispose(disposing:=True)
-        GC.SuppressFinalize(Me)
-    End Sub
-
 
 #End Region
 
