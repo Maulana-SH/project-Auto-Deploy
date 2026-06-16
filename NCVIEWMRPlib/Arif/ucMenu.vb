@@ -376,7 +376,7 @@ Public Class ucMenu
         'End Using
 
 
-        '''get t28
+        ''get t28
         ''Using objSKKMaster28 As clsMRP_iface = New clsMRP_impl With {
         ''     .prop_KeyString01 = "",
         ''     .prop_KeyString02 = "",

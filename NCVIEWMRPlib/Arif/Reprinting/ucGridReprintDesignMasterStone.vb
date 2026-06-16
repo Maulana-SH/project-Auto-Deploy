@@ -310,7 +310,6 @@ Public Class ucGridReprintDesignMasterStone
     End Sub
 
     Private Sub _btnShowPreview_Click(sender As Object, e As EventArgs) Handles _btnShowPreview.Click
-        Dim Novalidation As String
         Dim KodeDMS As String
 
         For Each dtRow As DataRow In prop_dtCheck.Rows

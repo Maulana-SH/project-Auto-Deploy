@@ -133,7 +133,7 @@ Public Class PROReportParent
         End With
 
         Me.Margins = New Margins(50, 50, 50, 50)
-        Me.PaperKind = PaperKind.A4
+        Me.PaperKind = System.Drawing.Printing.PaperKind.A4
         Me.ShowPreview
     End Sub
 

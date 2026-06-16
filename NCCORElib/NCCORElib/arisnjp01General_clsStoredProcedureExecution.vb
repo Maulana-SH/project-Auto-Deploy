@@ -722,8 +722,10 @@ Public Class arisnjp01General_clsStoredProcedureExecution
 
                 objConnDB.Close()
             End Using
+            Return SAKA2011_P4_ObjectDataSet.Tables(SAKA2011_P3_NamaDataSet)
         Catch ex As Exception
             MsgBox(ex.Message)
+            Return Nothing
         End Try
     End Function
 
@@ -838,8 +840,10 @@ Public Class arisnjp01General_clsStoredProcedureExecution
 
                 objConnDB.Close()
             End Using
+            Return SAKA2011_P4_ObjectDataSet.Tables(0)
         Catch ex As Exception
             MsgBox(ex.Message)
+            Return Nothing
         End Try
     End Function
 
