@@ -92,6 +92,8 @@ Public Class xrFRMLogin
         If String.IsNullOrEmpty(sesionUser) Then
 
             MsgBox("Sesion Is Empty... data")
+        Else
+            MsgBox("worked...")
         End If
 
     End Sub

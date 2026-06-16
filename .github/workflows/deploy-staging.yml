@@ -1,35 +1,82 @@
-name: Deploy to Staging
+name: 🚀 Deploy to Staging
 
 on:
-  push:
-    branches:
-      - staging
-
-concurrency:
-  group: deploy-staging
-  cancel-in-progress: true
+     pull_request:
+          branches:
+               - staging
+          types:
+               - closed
 
 jobs:
-  deploy:
-    runs-on: self-hosted
+     build-and-deploy:
+          name: Build & Deploy → Staging
+          runs-on: self-hosted
 
-    steps:
-      - name: Checkout kode
-        uses: actions/checkout@v4
+          # Hanya jalan kalau PR di-MERGE (bukan sekedar ditutup)
+          if: github.event.pull_request.merged == true
 
-      - name: Build Release
-        shell: pwsh
-        run: |
-          $msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
-          & $msbuild "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          steps:
+               - name: ✅ Checkout code
+                 uses: actions/checkout@v4
 
-      - name: Copy ke Staging
-        shell: pwsh
-        run: |
-          xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Staging\SKKRNDAPPS\"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+               - name: 🔧 Setup MSBuild
+                 uses: microsoft/setup-msbuild@v2
 
-      - name: Selesai
-        shell: pwsh
-        run: Write-Host "Deploy ke Staging berhasil"
+               - name: 📦 Restore NuGet packages
+                 shell: powershell
+                 run: nuget restore "SKK.sln"
+                 working-directory: "SKK"
+
+               - name: 🏗️ Build Release
+                 shell: powershell
+                 run: |
+                      msbuild "SKK.sln" `
+                        /p:Configuration=Release `
+                        /p:Platform="Any CPU" `
+                        /t:Rebuild `
+                        /m `
+                        /v:minimal
+                 working-directory: "SKK"
+
+               - name: 🔍 Verifikasi hasil build
+                 shell: powershell
+                 run: |
+                      $buildOutput = "SKK\SKK\bin\Release"
+                      if (Test-Path $buildOutput) {
+                        $files = Get-ChildItem $buildOutput | Measure-Object
+                        Write-Host "✅ Build output ditemukan: $($files.Count) file(s)"
+                      } else {
+                        Write-Host "❌ Folder build tidak ditemukan: $buildOutput"
+                        exit 1
+                      }
+
+               - name: 📁 Deploy ke Staging
+                 shell: powershell
+                 run: |
+                      $source      = "SKK\SKK\bin\Release"
+                      $destination = "D:\Citrix\Staging\SKKRNDAPPS"
+
+                      Write-Host "📂 Source      : $source"
+                      Write-Host "📂 Destination : $destination"
+                      Write-Host "🔀 PR          : ${{ github.event.pull_request.title }}"
+                      Write-Host "👤 Merged by   : ${{ github.event.pull_request.merged_by.login }}"
+                      Write-Host "⏳ Deploying..."
+
+                      robocopy $source $destination /MIR /NP /NDL /LOG:deploy-staging.log
+
+                      if ($LASTEXITCODE -le 7) {
+                        Write-Host "✅ Deploy Staging BERHASIL!"
+                        exit 0
+                      } else {
+                        Write-Host "❌ Deploy Staging GAGAL! Exit code: $LASTEXITCODE"
+                        Get-Content deploy-staging.log
+                        exit 1
+                      }
+
+               - name: 📋 Upload Deploy Log
+                 if: always()
+                 uses: actions/upload-artifact@v4
+                 with:
+                      name: staging-deploy-log-${{ github.run_number }}
+                      path: deploy-staging.log
+                      retention-days: 7

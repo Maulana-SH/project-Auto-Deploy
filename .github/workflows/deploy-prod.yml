@@ -1,35 +1,82 @@
-name: Deploy to Production
+name: 🚀 Deploy to Production
 
 on:
-  push:
-    branches:
-      - main
-
-concurrency:
-  group: deploy-production
-  cancel-in-progress: true
+     pull_request:
+          branches:
+               - main
+          types:
+               - closed
 
 jobs:
-  deploy:
-    runs-on: self-hosted
+     build-and-deploy:
+          name: Build & Deploy → Production
+          runs-on: self-hosted
 
-    steps:
-      - name: Checkout kode
-        uses: actions/checkout@v4
+          # Hanya jalan kalau PR di-MERGE (bukan sekedar ditutup)
+          if: github.event.pull_request.merged == true
 
-      - name: Build Release
-        shell: pwsh
-        run: |
-          $msbuild = "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe"
-          & $msbuild "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          steps:
+               - name: ✅ Checkout code
+                 uses: actions/checkout@v4
 
-      - name: Copy ke Production
-        shell: pwsh
-        run: |
-          xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Production\SKKRNDAPPS\"
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+               - name: 🔧 Setup MSBuild
+                 uses: microsoft/setup-msbuild@v2
 
-      - name: Selesai
-        shell: pwsh
-        run: Write-Host "Deploy ke Production berhasil"
+               - name: 📦 Restore NuGet packages
+                 shell: powershell
+                 run: nuget restore "SKK.sln"
+                 working-directory: "SKK"
+
+               - name: 🏗️ Build Release
+                 shell: powershell
+                 run: |
+                      msbuild "SKK.sln" `
+                        /p:Configuration=Release `
+                        /p:Platform="Any CPU" `
+                        /t:Rebuild `
+                        /m `
+                        /v:minimal
+                 working-directory: "SKK"
+
+               - name: 🔍 Verifikasi hasil build
+                 shell: powershell
+                 run: |
+                      $buildOutput = "SKK\SKK\bin\Release"
+                      if (Test-Path $buildOutput) {
+                        $files = Get-ChildItem $buildOutput | Measure-Object
+                        Write-Host "✅ Build output ditemukan: $($files.Count) file(s)"
+                      } else {
+                        Write-Host "❌ Folder build tidak ditemukan: $buildOutput"
+                        exit 1
+                      }
+
+               - name: 📁 Deploy ke Production
+                 shell: powershell
+                 run: |
+                      $source      = "SKK\SKK\bin\Release"
+                      $destination = "D:\Citrix\Production\SKKRNDAPPS"
+
+                      Write-Host "📂 Source      : $source"
+                      Write-Host "📂 Destination : $destination"
+                      Write-Host "🔀 PR          : ${{ github.event.pull_request.title }}"
+                      Write-Host "👤 Merged by   : ${{ github.event.pull_request.merged_by.login }}"
+                      Write-Host "⏳ Deploying..."
+
+                      robocopy $source $destination /MIR /NP /NDL /LOG:deploy-production.log
+
+                      if ($LASTEXITCODE -le 7) {
+                        Write-Host "✅ Deploy Production BERHASIL!"
+                        exit 0
+                      } else {
+                        Write-Host "❌ Deploy Production GAGAL! Exit code: $LASTEXITCODE"
+                        Get-Content deploy-production.log
+                        exit 1
+                      }
+
+               - name: 📋 Upload Deploy Log
+                 if: always()
+                 uses: actions/upload-artifact@v4
+                 with:
+                      name: production-deploy-log-${{ github.run_number }}
+                      path: deploy-production.log
+                      retention-days: 30
