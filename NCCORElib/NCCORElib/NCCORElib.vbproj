@@ -81,6 +81,30 @@
     <Reference Include="DevExpress.Printing.v25.2.Core">
       <HintPath>..\..\SKK\Lib\DevExpress.Printing.v25.2.Core.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XtraReports.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraReports.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v25.2.Extensions">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraReports.v25.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraCharts.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Pdf.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v25.2.Drawing">
+      <HintPath>..\..\SKK\Lib\DevExpress.Pdf.v25.2.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.RichEdit.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v25.2.Export">
+      <HintPath>..\..\SKK\Lib\DevExpress.RichEdit.v25.2.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.DataAccess.v25.2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
