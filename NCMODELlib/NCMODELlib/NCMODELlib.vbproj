@@ -79,6 +79,7 @@
     <Reference Include="DevExpress.Printing.v25.2.Core">
       <HintPath>..\..\SKK\Lib\DevExpress.Printing.v25.2.Core.dll</HintPath>
     </Reference>
+ 
     <Reference Include="DevExpress.XtraReports.v25.2">
       <HintPath>..\..\SKK\Lib\DevExpress.XtraReports.v25.2.dll</HintPath>
     </Reference>

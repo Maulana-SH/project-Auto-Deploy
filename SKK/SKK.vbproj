@@ -1332,28 +1332,6 @@
     <Content Include="SKKLogo.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NCCONTROLLERlib\NCCONTROLLERlib\NCCONTROLLERlib.vbproj">
-      <Project>{79575026-8842-4453-9bef-a945da19beac}</Project>
-      <Name>NCCONTROLLERlib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NCCORElib\NCCORElib\NCCORElib.vbproj">
-      <Project>{ffe477a8-0f1a-4ee6-a966-6673f2bfd70e}</Project>
-      <Name>NCCORElib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NCMODELlib\NCMODELlib\NCMODELlib.vbproj">
-      <Project>{a788cd6b-fb46-4723-bb50-cf3dcff108c9}</Project>
-      <Name>NCMODELlib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NCREPOSITORYlib\NCREPOSITORYlib\NCREPOSITORYlib.vbproj">
-      <Project>{b14e6e7c-11cc-44b5-bc06-0f613633ce77}</Project>
-      <Name>NCREPOSITORYlib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NCVIEWMRPlib\NCVIEWMRPlib.vbproj">
-      <Project>{70f7c281-decf-41ff-b020-0ed082e773a7}</Project>
-      <Name>NCVIEWMRPlib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>

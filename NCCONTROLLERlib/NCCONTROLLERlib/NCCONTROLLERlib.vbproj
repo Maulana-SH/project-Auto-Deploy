@@ -112,7 +112,7 @@
     <Reference Include="DevExpress.DataAccess.v25.2">
       <HintPath>..\..\SKK\Lib\DevExpress.DataAccess.v25.2.dll</HintPath>
     </Reference>
-  </ItemGroup>
+ </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
