@@ -57,6 +57,30 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="DevExpress.XtraEditors.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraEditors.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraGrid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraBars.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraTreeList.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Utils.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Data.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Drawing.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Printing.v25.2.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
