@@ -41,7 +41,7 @@ jobs:
                - name: 🔍 Verifikasi hasil build
                  shell: powershell
                  run: |
-                      $buildOutput = "SKK\SKK\bin\Release"
+                      $buildOutput = "SKK\bin\Release"
                       if (Test-Path $buildOutput) {
                         $files = Get-ChildItem $buildOutput | Measure-Object
                         Write-Host "✅ Build output ditemukan: $($files.Count) file(s)"
@@ -53,7 +53,7 @@ jobs:
                - name: 📁 Deploy ke Staging
                  shell: powershell
                  run: |
-                      $source      = "SKK\SKK\bin\Release"
+                      $source      = "SKK\bin\Release"
                       $destination = "D:\Citrix\Staging\SKKRNDAPPS"
 
                       Write-Host "📂 Source      : $source"
