@@ -19,6 +19,7 @@ jobs:
                - name: ✅ Checkout code
                  uses: actions/checkout@v4
 
+<<<<<<< HEAD
                - name: 🔧 Setup MSBuild
                  uses: microsoft/setup-msbuild@v2
 
@@ -80,3 +81,24 @@ jobs:
                       name: staging-deploy-log-${{ github.run_number }}
                       path: deploy-staging.log
                       retention-days: 7
+=======
+               - name: Restore NuGet
+                 shell: powershell
+                 run: |
+                      C:\nuget.exe restore "SKK\SKK.sln"
+
+               - name: Build Release
+                 shell: powershell
+                 run: |
+                      & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU" /p:ReferencePath="${{ github.workspace }}\libs"
+                      if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+               - name: Copy ke Staging
+                 shell: powershell
+                 run: |
+                      xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Staging\SKKRNDAPPS\"
+
+               - name: Selesai
+                 shell: powershell
+                 run: Write-Host "Deploy ke Staging berhasil"
+>>>>>>> origin/main
