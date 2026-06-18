@@ -27,16 +27,19 @@ jobs:
         run: nuget restore "SKK.sln"
         working-directory: 'SKK'
 
-      - name: 🏗️ Build Release
-        shell: powershell
-        run: |
-          msbuild "SKK.sln" `
-            /p:Configuration=Release `
-            /p:Platform="Any CPU" `
-            /t:Rebuild `
-            /m `
-            /v:minimal
-        working-directory: 'SKK'
+               - name: 🏗️ Build Release
+                 shell: powershell
+                 run: |
+                      msbuild "SKK.sln" `
+                        /p:Configuration=Release `
+                        /p:Platform="Any CPU" `
+                        /t:Rebuild `
+                        /m `
+                        /v:minimal `
+                        /p:SignManifests=false `
+                        /p:SignAssembly=false `
+                        /p:GenerateManifests=false
+                 working-directory: "SKK"
 
       - name: 🔍 Verifikasi hasil build
         shell: powershell
