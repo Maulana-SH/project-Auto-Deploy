@@ -88,7 +88,9 @@ jobs:
                       Write-Host "Merged by   : ${{ github.event.pull_request.merged_by.login }}"
 
                       Write-Host "Connecting ke share..."
-                      net use $shareRoot /delete /y 2>$null
+                      $ErrorActionPreference = "SilentlyContinue"
+                      net use $shareRoot /delete /y 2>&1 | Out-Null
+                      $ErrorActionPreference = "Stop"
                       net use $shareRoot $env:SHARE_PASS /user:$env:SHARE_USER
                       if ($LASTEXITCODE -ne 0) {
                         Write-Host "Gagal konek ke share $shareRoot"
@@ -99,7 +101,9 @@ jobs:
                       robocopy $source $destination /MIR /NP /NDL /R:3 /W:5 /LOG:deploy-production.log
                       $robocopyExit = $LASTEXITCODE
 
-                      net use $shareRoot /delete /y 2>$null
+                      $ErrorActionPreference = "SilentlyContinue"
+                      net use $shareRoot /delete /y 2>&1 | Out-Null
+                      $ErrorActionPreference = "Stop"
 
                       if ($robocopyExit -le 7) {
                         Write-Host "Deploy Production BERHASIL!"
