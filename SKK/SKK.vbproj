@@ -206,7 +206,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RawPrinterHelper">
-      <HintPath>..\..\Refrens\RawPrinterHelper.dll</HintPath>
+      <HintPath>Lib\RawPrinterHelper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -264,7 +264,208 @@
       <HintPath>packages\CTX.WinscpExtensions.5.1.5.1\lib\WinSCP.dll</HintPath>
     </Reference>
     <Reference Include="ZylSerialPort">
-      <HintPath>..\..\Refrens\ZylSerialPort.dll</HintPath>
+      <HintPath>Lib\ZylSerialPort.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v25.2">
+      <HintPath>Lib\\DevExpress.XtraEditors.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v25.2">
+      <HintPath>Lib\\DevExpress.XtraGrid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v25.2">
+      <HintPath>Lib\\DevExpress.XtraBars.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v25.2">
+      <HintPath>Lib\\DevExpress.XtraTreeList.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v25.2">
+      <HintPath>Lib\\DevExpress.Utils.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v25.2">
+      <HintPath>Lib\\DevExpress.Data.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v25.2">
+      <HintPath>Lib\\DevExpress.Drawing.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v25.2.Core">
+      <HintPath>Lib\\DevExpress.Printing.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v25.2">
+      <HintPath>Lib\DevExpress.XtraReports.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v25.2.Extensions">
+      <HintPath>Lib\DevExpress.XtraReports.v25.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v25.2">
+      <HintPath>Lib\DevExpress.XtraCharts.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v25.2.Core">
+      <HintPath>Lib\DevExpress.Pdf.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v25.2.Drawing">
+      <HintPath>Lib\DevExpress.Pdf.v25.2.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v25.2.Core">
+      <HintPath>Lib\DevExpress.RichEdit.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v25.2.Export">
+      <HintPath>Lib\DevExpress.RichEdit.v25.2.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v25.2">
+      <HintPath>Lib\DevExpress.DataAccess.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v25.2.Core">
+      <HintPath>Lib\DevExpress.XtraGauges.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v25.2.Win">
+      <HintPath>Lib\DevExpress.XtraGauges.v25.2.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v25.2.Presets">
+      <HintPath>Lib\DevExpress.XtraGauges.v25.2.Presets.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v25.2">
+      <HintPath>Lib\DevExpress.XtraPivotGrid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v25.2.Core">
+      <HintPath>Lib\DevExpress.PivotGrid.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v25.2">
+      <HintPath>Lib\DevExpress.XtraScheduler.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v25.2.Core">
+      <HintPath>Lib\DevExpress.XtraScheduler.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v25.2.Core.Desktop">
+      <HintPath>Lib\DevExpress.XtraScheduler.v25.2.Core.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v25.2">
+      <HintPath>Lib\DevExpress.XtraTreeMap.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v25.2.UI">
+      <HintPath>Lib\DevExpress.XtraTreeMap.v25.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v25.2">
+      <HintPath>Lib\DevExpress.XtraVerticalGrid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraDialogs.v25.2">
+      <HintPath>Lib\DevExpress.XtraDialogs.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v25.2">
+      <HintPath>Lib\DevExpress.XtraLayout.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v25.2">
+      <HintPath>Lib\DevExpress.XtraNavBar.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v25.2">
+      <HintPath>Lib\DevExpress.Images.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v25.2">
+      <HintPath>Lib\DevExpress.Mvvm.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v25.2.Core">
+      <HintPath>Lib\DevExpress.Office.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v25.2.Core">
+      <HintPath>Lib\DevExpress.Sparkline.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v25.2">
+      <HintPath>Lib\DevExpress.Data.Desktop.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v25.2.UI">
+      <HintPath>Lib\DevExpress.DataAccess.v25.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataVisualization.v25.2.Core">
+      <HintPath>Lib\DevExpress.DataVisualization.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v25.2.Extensions">
+      <HintPath>Lib\DevExpress.XtraCharts.v25.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v25.2.UI">
+      <HintPath>Lib\DevExpress.XtraCharts.v25.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v25.2.Wizard">
+      <HintPath>Lib\DevExpress.XtraCharts.v25.2.Wizard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGantt.v25.2">
+      <HintPath>Lib\DevExpress.XtraGantt.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraMap.v25.2">
+      <HintPath>Lib\DevExpress.XtraMap.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Map.v25.2.Core">
+      <HintPath>Lib\DevExpress.Map.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Diagram.v25.2.Core">
+      <HintPath>Lib\DevExpress.Diagram.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraDiagram.v25.2">
+      <HintPath>Lib\DevExpress.XtraDiagram.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dialogs.v25.2.Core">
+      <HintPath>Lib\DevExpress.Dialogs.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v25.2">
+      <HintPath>Lib\DevExpress.CodeParser.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v25.2.Core">
+      <HintPath>Lib\DevExpress.Dashboard.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v25.2.Win">
+      <HintPath>Lib\DevExpress.Dashboard.v25.2.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v25.2">
+      <HintPath>Lib\DevExpress.Xpo.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v25.2.Core">
+      <HintPath>Lib\DevExpress.Charts.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.TreeMap.v25.2.Core">
+      <HintPath>Lib\DevExpress.TreeMap.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v25.2.UI">
+      <HintPath>Lib\DevExpress.Utils.v25.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v25.2">
+      <HintPath>Lib\DevExpress.Xpf.Controls.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v25.2">
+      <HintPath>Lib\DevExpress.Xpf.Core.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v25.2">
+      <HintPath>Lib\DevExpress.Xpf.Docking.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.DocumentViewer.v25.2.Core">
+      <HintPath>Lib\DevExpress.Xpf.DocumentViewer.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v25.2.Core">
+      <HintPath>Lib\DevExpress.Xpf.Grid.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v25.2">
+      <HintPath>Lib\DevExpress.Xpf.Grid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v25.2.Core">
+      <HintPath>Lib\DevExpress.Xpf.Layout.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v25.2">
+      <HintPath>Lib\DevExpress.Xpf.LayoutControl.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v25.2">
+      <HintPath>Lib\DevExpress.Xpf.Printing.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v25.2">
+      <HintPath>Lib\DevExpress.Xpf.Ribbon.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v25.2">
+      <HintPath>Lib\DevExpress.XtraPrinting.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v25.2">
+      <HintPath>Lib\DevExpress.XtraRichEdit.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="PCSC">
+      <HintPath>Lib\PCSC.dll</HintPath>
+    </Reference>
+    <Reference Include="PCSC.Iso7816">
+      <HintPath>Lib\PCSC.Iso7816.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

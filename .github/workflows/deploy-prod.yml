@@ -1,34 +1,85 @@
 name: Deploy to Production
 
 on:
-     push:
+     pull_request:
           branches:
                - main
+          types:
+               - closed
 
 jobs:
-     deploy:
+     build-and-deploy:
+          name: Build & Deploy → Production
           runs-on: self-hosted
 
+          # Hanya jalan kalau PR di-MERGE (bukan sekedar ditutup)
+          if: github.event.pull_request.merged == true
+
           steps:
-               - name: Checkout kode
+               - name: ✅ Checkout code
                  uses: actions/checkout@v4
 
-               - name: Restore NuGet
+               - name: 🔧 Setup MSBuild
+                 uses: microsoft/setup-msbuild@v2
+
+               - name: 📦 Restore NuGet packages
+                 shell: powershell
+                 run: nuget restore "SKK.sln"
+                 working-directory: "SKK"
+
+               - name: 🏗️ Build Release
                  shell: powershell
                  run: |
-                      C:\nuget.exe restore "SKK\SKK.sln"
+                      msbuild "SKK.sln" `
+                        /p:Configuration=Release `
+                        /p:Platform="Any CPU" `
+                        /t:Rebuild `
+                        /m `
+                        /v:minimal `
+                        /p:SignManifests=false `
+                        /p:SignAssembly=false `
+                        /p:GenerateManifests=false
+                 working-directory: "SKK"
 
-               - name: Build Release
+               - name: 🔍 Verifikasi hasil build
                  shell: powershell
                  run: |
-                      & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "SKK\SKK.sln" /p:Configuration=Release /p:Platform="Any CPU" /p:ReferencePath="${{ github.workspace }}\libs"
-                      if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+                      $buildOutput = "SKK\bin\Release"
+                      if (Test-Path $buildOutput) {
+                        $files = Get-ChildItem $buildOutput | Measure-Object
+                        Write-Host "✅ Build output ditemukan: $($files.Count) file(s)"
+                      } else {
+                        Write-Host "❌ Folder build tidak ditemukan: $buildOutput"
+                        exit 1
+                      }
 
-               - name: Copy ke Production
+               - name: 📁 Deploy ke Production
                  shell: powershell
                  run: |
-                      xcopy /E /Y /I "SKK\SKK\bin\Release\*" "D:\Citrix\Production\SKKRNDAPPS\"
+                      $source      = "SKK\bin\Release"
+                      $destination = "D:\Citrix\Production\SKKRNDAPPS"
 
-               - name: Selesai
-                 shell: powershell
-                 run: Write-Host "Deploy ke Production berhasil"
+                      Write-Host "📂 Source      : $source"
+                      Write-Host "📂 Destination : $destination"
+                      Write-Host "🔀 PR          : ${{ github.event.pull_request.title }}"
+                      Write-Host "👤 Merged by   : ${{ github.event.pull_request.merged_by.login }}"
+                      Write-Host "⏳ Deploying..."
+
+                      robocopy $source $destination /MIR /NP /NDL /LOG:deploy-production.log
+
+                      if ($LASTEXITCODE -le 7) {
+                        Write-Host "✅ Deploy Production BERHASIL!"
+                        exit 0
+                      } else {
+                        Write-Host "❌ Deploy Production GAGAL! Exit code: $LASTEXITCODE"
+                        Get-Content deploy-production.log
+                        exit 1
+                      }
+
+               - name: 📋 Upload Deploy Log
+                 if: always()
+                 uses: actions/upload-artifact@v4
+                 with:
+                      name: production-deploy-log-${{ github.run_number }}
+                      path: deploy-production.log
+                      retention-days: 30

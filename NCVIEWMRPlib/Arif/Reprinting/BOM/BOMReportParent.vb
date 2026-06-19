@@ -118,7 +118,7 @@ Public Class BOMReportParent
 
         Me._cm02SetBackColorTableByMaterial("GOLD")
 
-        Me.PaperKind = PaperKind.A4
+        Me.PaperKind = System.Drawing.Printing.PaperKind.A4
         Me.Margins = New Margins(50, 50, 50, 60)
     End Sub
 

@@ -85,7 +85,7 @@ Public Class JCReportParent3D
 
         objPrinterSetting.PrinterName = PrinterName
         ' objPrinterSetting.Copies = CopiesTo
-        PaperKind = PaperKind.A4
+        PaperKind = System.Drawing.Printing.PaperKind.A4
         'Margins(Left, Right, Top, Bottom)
         Margins = New Margins(25, 25, 15, 25)
         objJCParent.ShowPreview
@@ -127,7 +127,7 @@ Public Class JCReportParent3D
         End With
 
         objPrinterSetting.PrinterName = PrinterName
-        PaperKind = PaperKind.A4
+        PaperKind = System.Drawing.Printing.PaperKind.A4
         'Margins(Left, Right, Top, Bottom)
         Margins = New Margins(25, 25, 25, 25)
         objJCParent.Print

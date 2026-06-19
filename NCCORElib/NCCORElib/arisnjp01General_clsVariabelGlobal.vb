@@ -14,6 +14,8 @@
                     Return "172.25.0.2,1500" '"192.168.2.150,1500"  '"103.247.218.155" ' "192.168.2.155"     'server GJ gd.08
                 Case 2
                     Return "172.25.0.4" '"192.168.2.150,1500"  '"103.247.218.155" ' "192.168.2.155"     'server GJ gd.08
+                Case Else
+                    Return String.Empty
             End Select
         End Get
     End Property
@@ -27,6 +29,8 @@
                     Return "aris"  'user Name Server GJ
                 Case 2
                     Return "sa"  'user Name Server GJ
+                Case Else
+                    Return String.Empty
             End Select
 
         End Get
@@ -41,6 +45,8 @@
                     Return "s@k@2020" 'server Gj pasword
                 Case 2
                     Return "nasa@123" 'server Gj pasword
+                Case Else
+                    Return String.Empty
             End Select
 
         End Get

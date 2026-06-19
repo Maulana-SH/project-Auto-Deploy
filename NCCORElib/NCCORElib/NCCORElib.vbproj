@@ -24,7 +24,7 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>NCCORElib.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42107</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -34,7 +34,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>NCCORElib.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42107</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
@@ -57,6 +57,213 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="DevExpress.XtraEditors.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraEditors.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraGrid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraBars.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraTreeList.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Utils.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Data.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Drawing.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Drawing.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Printing.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraReports.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v25.2.Extensions">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraReports.v25.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraCharts.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Pdf.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v25.2.Drawing">
+      <HintPath>..\..\SKK\Lib\DevExpress.Pdf.v25.2.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.RichEdit.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v25.2.Export">
+      <HintPath>..\..\SKK\Lib\DevExpress.RichEdit.v25.2.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.DataAccess.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraGauges.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v25.2.Win">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraGauges.v25.2.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v25.2.Presets">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraGauges.v25.2.Presets.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPivotGrid.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraPivotGrid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.PivotGrid.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraScheduler.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraScheduler.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v25.2.Core.Desktop">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraScheduler.v25.2.Core.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraTreeMap.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeMap.v25.2.UI">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraTreeMap.v25.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraVerticalGrid.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraVerticalGrid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraDialogs.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraDialogs.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraLayout.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraLayout.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraNavBar.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Images.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Mvvm.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Office.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Sparkline.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Data.Desktop.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v25.2.UI">
+      <HintPath>..\..\SKK\Lib\DevExpress.DataAccess.v25.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataVisualization.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.DataVisualization.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v25.2.Extensions">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraCharts.v25.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v25.2.UI">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraCharts.v25.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v25.2.Wizard">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraCharts.v25.2.Wizard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGantt.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraGantt.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraMap.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraMap.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Map.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Map.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Diagram.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Diagram.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraDiagram.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraDiagram.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dialogs.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Dialogs.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.CodeParser.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Dashboard.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Dashboard.v25.2.Win">
+      <HintPath>..\..\SKK\Lib\DevExpress.Dashboard.v25.2.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpo.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="ZylSerialPort">
+      <HintPath>..\..\SKK\Lib\ZylSerialPort.dll</HintPath>
+    </Reference>
+    <Reference Include="PCSC">
+      <HintPath>..\..\SKK\Lib\PCSC.dll</HintPath>
+    </Reference>
+    <Reference Include="PCSC.Iso7816">
+      <HintPath>..\..\SKK\Lib\PCSC.Iso7816.dll</HintPath>
+    </Reference>
+    <Reference Include="RawPrinterHelper">
+      <HintPath>..\..\SKK\Lib\RawPrinterHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Charts.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.TreeMap.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.TreeMap.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v25.2.UI">
+      <HintPath>..\..\SKK\Lib\DevExpress.Utils.v25.2.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Controls.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.Controls.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.Core.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.Docking.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.DocumentViewer.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.DocumentViewer.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.Grid.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.Grid.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v25.2.Core">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.Layout.v25.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.LayoutControl.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.Printing.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.Xpf.Ribbon.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraPrinting.v25.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v25.2">
+      <HintPath>..\..\SKK\Lib\DevExpress.XtraRichEdit.v25.2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />

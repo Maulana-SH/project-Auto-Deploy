@@ -94,7 +94,7 @@ Public Class PROPreparationReportParent
         End If
 
         objReportProPrepParent.Margins = New Margins(25, 25, 25, 25)
-        objReportProPrepParent.PaperKind = PaperKind.A4
+        objReportProPrepParent.PaperKind = System.Drawing.Printing.PaperKind.A4
         ' objReportProPrepParent.Print(PrinterName)
         'objReportProPrepParent.Print
         objReportProPrepParent.ShowPreview

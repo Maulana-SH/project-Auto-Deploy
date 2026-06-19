@@ -336,7 +336,7 @@ Public Class ucMRP20EV01DesignMaster
     End Sub
 
     Private Function _cm07GetNamaByCode(ByVal prmDataTable As DataTable, ByVal KodeType As String) As String
-        Dim SetName As String
+        Dim SetName As String = String.Empty
         Dim pdRow() As DataRow = prmDataTable.Select("k01cKodeFieldValueMaster_v50 = '" & KodeType & "'")
         If pdRow.Count > 0 Then
             SetName = pdRow(0).Item("f01cIsiFieldValueMaster_v50")
