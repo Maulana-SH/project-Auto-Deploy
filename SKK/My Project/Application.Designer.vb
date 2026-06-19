@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.SKK.xrFRMLogin
+            Me.MainForm = Global.SKK.xf39GanChart
         End Sub
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
