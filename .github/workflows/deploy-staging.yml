@@ -1,4 +1,4 @@
-name: 🚀 Deploy to Staging
+name: Deploy to Staging
 
 on:
      pull_request:
@@ -8,8 +8,8 @@ on:
                - closed
 
 jobs:
-     build-and-deploy:
-          name: Build & Deploy → Staging
+     build:
+          name: 🏗️ Build
           runs-on: self-hosted
 
           # Hanya jalan kalau PR di-MERGE (bukan sekedar ditutup)
@@ -53,6 +53,25 @@ jobs:
                         exit 1
                       }
 
+               - name: 📤 Upload build artifact
+                 uses: actions/upload-artifact@v4
+                 with:
+                      name: staging-build-${{ github.run_number }}
+                      path: SKK\bin\Release
+                      retention-days: 1
+
+     deploy:
+          name: 📁 Deploy → Staging
+          runs-on: self-hosted
+          needs: build
+
+          steps:
+               - name: 📥 Download build artifact
+                 uses: actions/download-artifact@v4
+                 with:
+                      name: staging-build-${{ github.run_number }}
+                      path: SKK\bin\Release
+
                - name: 📁 Deploy ke Staging
                  shell: powershell
                  run: |
@@ -63,7 +82,7 @@ jobs:
                       Write-Host "🔀 PR          : ${{ github.event.pull_request.title }}"
                       Write-Host "👤 Merged by   : ${{ github.event.pull_request.merged_by.login }}"
                       Write-Host "⏳ Deploying..."
-                      robocopy $source $destination /MIR /NP /NDL /LOG:deploy-staging.log
+                      robocopy $source $destination /MIR /NP /NDL /R:3 /W:5 /LOG:deploy-staging.log
                       if ($LASTEXITCODE -le 7) {
                         Write-Host "✅ Deploy Staging BERHASIL!"
                         exit 0
