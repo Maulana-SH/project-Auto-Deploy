@@ -81,7 +81,6 @@ jobs:
                       name: staging-deploy-log-${{ github.run_number }}
                       path: deploy-staging.log
                       retention-days: 7
-=======
                - name: Restore NuGet
                  shell: powershell
                  run: |
@@ -101,4 +100,3 @@ jobs:
                - name: Selesai
                  shell: powershell
                  run: Write-Host "Deploy ke Staging berhasil"
->>>>>>> origin/main
