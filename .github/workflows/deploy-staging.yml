@@ -76,7 +76,7 @@ jobs:
                  shell: powershell
                  run: |
                       $source      = "SKK\bin\Release"
-                      $destination = "D:\Citrix\Staging\SKKRNDAPPS"
+                      $destination = "\\172.25.0.2\App\Staging\SKKRNDAPPS"
                       Write-Host "📂 Source      : $source"
                       Write-Host "📂 Destination : $destination"
                       Write-Host "🔀 PR          : ${{ github.event.pull_request.title }}"
