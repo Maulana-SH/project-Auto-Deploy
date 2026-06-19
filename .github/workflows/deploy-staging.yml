@@ -1,4 +1,4 @@
-name: Deploy to Staging
+name: 🚀 Deploy to Staging
 
 on:
      pull_request:
@@ -74,20 +74,37 @@ jobs:
 
                - name: 📁 Deploy ke Staging
                  shell: powershell
+                 env:
+                      SHARE_USER: ${{ secrets.SHAREB_USERNAME }}
+                      SHARE_PASS: ${{ secrets.SHAREB_PASSWORD }}
                  run: |
                       $source      = "SKK\bin\Release"
-                      $destination = "\\172.25.0.2\App\Staging\SKKRNDAPPS"
+                      $shareRoot   = "\\172.25.0.2\App"
+                      $destination = "$shareRoot\Staging\SKKRNDAPPS"
                       Write-Host "📂 Source      : $source"
                       Write-Host "📂 Destination : $destination"
                       Write-Host "🔀 PR          : ${{ github.event.pull_request.title }}"
                       Write-Host "👤 Merged by   : ${{ github.event.pull_request.merged_by.login }}"
+
+                      Write-Host "🔑 Connecting ke share..."
+                      net use $shareRoot /delete /y 2>$null
+                      net use $shareRoot $env:SHARE_PASS /user:$env:SHARE_USER
+                      if ($LASTEXITCODE -ne 0) {
+                        Write-Host "❌ Gagal konek ke share $shareRoot"
+                        exit 1
+                      }
+
                       Write-Host "⏳ Deploying..."
                       robocopy $source $destination /MIR /NP /NDL /R:3 /W:5 /LOG:deploy-staging.log
-                      if ($LASTEXITCODE -le 7) {
+                      $robocopyExit = $LASTEXITCODE
+
+                      net use $shareRoot /delete /y 2>$null
+
+                      if ($robocopyExit -le 7) {
                         Write-Host "✅ Deploy Staging BERHASIL!"
                         exit 0
                       } else {
-                        Write-Host "❌ Deploy Staging GAGAL! Exit code: $LASTEXITCODE"
+                        Write-Host "❌ Deploy Staging GAGAL! Exit code: $robocopyExit"
                         Get-Content deploy-staging.log
                         exit 1
                       }
