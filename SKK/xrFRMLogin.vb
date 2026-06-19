@@ -88,8 +88,8 @@ Public Class xrFRMLogin
     Private Sub cm04CekSesionLogin()
         ' Tode CODe cek
         Dim sesionUser As String = ""
-        Dim sesionUser_id As String = ""
-        Dim sesionUser_Name As String = ""
+        Dim sesionUser_id As String = "123"
+        Dim sesionUser_Name As String = "321"
 
         If String.IsNullOrEmpty(sesionUser) Then
 
