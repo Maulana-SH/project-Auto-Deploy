@@ -76,7 +76,7 @@ jobs:
                  shell: powershell
                  run: |
                       $source      = "SKK\bin\Release"
-                      $destination = "D:\Citrix\Production\SKKRNDAPPS"
+                      $destination = "\\172.25.0.2\App\Production\SKKRNDAPPS"
 
                       Write-Host "📂 Source      : $source"
                       Write-Host "📂 Destination : $destination"
